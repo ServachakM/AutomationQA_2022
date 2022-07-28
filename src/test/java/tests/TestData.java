@@ -30,4 +30,15 @@ public class TestData {
                 {6, "New Comments"},
         };
     }
+
+    @DataProvider(name = "NamesSubmenuStart")
+    public static Object[][] namesSubmenuStart() {
+
+        return new Object[][]{
+                {0, "Team"},
+                {1, "Song Lyrics"},
+                {2, "History"},
+                {3, "Privacy"}
+        };
+    }
 }

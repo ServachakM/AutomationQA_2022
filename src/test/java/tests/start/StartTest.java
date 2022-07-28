@@ -3,8 +3,24 @@ package tests.start;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import runner.BaseTest;
+import tests.TestData;
 
 public class StartTest extends BaseTest {
+
+    @Test(
+            dataProviderClass = TestData.class,
+            dataProvider = "NamesSubmenuStart")
+    public void testSubmenuStartDataProv(int index, String submenu) {
+
+        String actualSubmenu =
+                openBaseURL()
+                        .clickStartMenu()
+                        .getAllSubmenu()
+                        .get(index)
+                        .getText();
+
+        Assert.assertEquals(actualSubmenu, submenu);
+    }
 
     @Test
     public void testInfoSubmenuText() {

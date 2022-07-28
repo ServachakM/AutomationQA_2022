@@ -1,5 +1,6 @@
 package pages.start;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,7 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 import pages.guestbook.GuestbookV2Page;
 import pages.submit_new_language.SubmitNewLanguagePage;
 
+import java.util.List;
+
 public class StartPage extends BaseStartPage {
+
+    private final By ALL_SUBMENU = By.xpath("//ul[@id='submenu']/li/a");
 
     @FindBy(xpath = "//a[@href='./info.html']")
     private WebElement historicInformationLink;
@@ -27,6 +32,11 @@ public class StartPage extends BaseStartPage {
     public StartPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(getDriver(), this);
+    }
+
+    public List<WebElement> getAllSubmenu() {
+
+        return getDriver().findElements(ALL_SUBMENU);
     }
 
     public WebElement getHistoricInformationLink() {
