@@ -11,6 +11,18 @@ import java.util.List;
 public class TeamTest extends BaseTest {
 
     @Test
+    public void testH2TextForTeamSubmenu() {
+        String expectedTextH2MainHeader = "The Team";
+
+        String actualTextH2MainHeader = openBaseURL()
+                .clickStartMenu()
+                .clickTeamSubmenu()
+                .getH2MainText();
+
+        Assert.assertEquals(expectedTextH2MainHeader, actualTextH2MainHeader);
+    }
+
+    @Test
     public void testClickabilityOfTeamPageLsLaNetLink() {
 
         String expectedTeamPageLsLaNetLink = "http://www.ls-la.net/";
