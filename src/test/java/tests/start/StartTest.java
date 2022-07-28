@@ -10,7 +10,7 @@ public class StartTest extends BaseTest {
     @Test(
             dataProviderClass = TestData.class,
             dataProvider = "NamesSubmenuStart")
-    public void testSubmenuStartDataProv(int index, String submenu) {
+    public void testSubmenuStartDataProv(int index, String submenu, String link) {
 
         String actualSubmenu =
                 openBaseURL()
