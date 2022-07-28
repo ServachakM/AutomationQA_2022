@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import runner.BaseTest;
 
-public class Scheme872Test extends BaseTest {
+public class Scheme572Test extends BaseTest {
 
     @Test
     public void testUrlSchemeLanguage() {
