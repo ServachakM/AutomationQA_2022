@@ -35,10 +35,10 @@ public class TestData {
     public static Object[][] namesSubmenuStart() {
 
         return new Object[][]{
-                {0, "Team"},
-                {1, "Song Lyrics"},
-                {2, "History"},
-                {3, "Privacy"}
+                {0, "Team", "http://www.99-bottles-of-beer.net/team.html"},
+                {1, "Song Lyrics", "http://www.99-bottles-of-beer.net/lyrics.html"},
+                {2, "History", "http://www.99-bottles-of-beer.net/info.html"},
+                {3, "Privacy", "http://www.99-bottles-of-beer.net/impressum.html"}
         };
     }
 }
