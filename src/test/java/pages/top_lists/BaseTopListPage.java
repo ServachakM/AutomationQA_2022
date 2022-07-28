@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.BaseTablePage;
 
+import java.util.List;
+
 public abstract class BaseTopListPage<LangPage> extends BaseTablePage<LangPage> {
 
     private final String SUBMENU_BASE_PATH = "//ul[@id='submenu']/li/a[@href=";
@@ -14,6 +16,8 @@ public abstract class BaseTopListPage<LangPage> extends BaseTablePage<LangPage> 
     private final By TOPHITS_SUBMENU = By.xpath(SUBMENU_BASE_PATH + "'./tophits.html']");
     private final By NEW_LANGUAGES_THIS_MONTH_SUBMENU = By.xpath(SUBMENU_BASE_PATH + "'./toplist_newlanguagesthismonth.html']");
     private final By NEW_COMMENTS_SUBMENU = By.xpath(SUBMENU_BASE_PATH + "'./newcomments.html']");
+
+    private final By ALL_SUBMENU = By.xpath("//ul[@id='submenu']/li/a");
 
     private final By H2_MAIN = By.xpath("//div[@id='main']/h2");
 
@@ -50,6 +54,11 @@ public abstract class BaseTopListPage<LangPage> extends BaseTablePage<LangPage> 
     public WebElement getNewCommentsSubmenu() {
 
         return getDriver().findElement(NEW_COMMENTS_SUBMENU);
+    }
+
+    public List<WebElement> getAllSubmenu() {
+
+        return getDriver().findElements(ALL_SUBMENU);
     }
 
     public WebElement getH2Main() {

@@ -16,4 +16,18 @@ public class TestData {
                 {5, "Submit new Language", "http://www.99-bottles-of-beer.net/submitnewlanguage.html", "Submit new Language"}
         };
     }
+
+    @DataProvider(name = "TopListSubmenuData")
+    public static Object[][] submenuDataProvider() {
+
+        return new Object[][] {
+                {0, "Top Rated"},
+                {1, "Top Rated Real"},
+                {2, "Top Rated Esoteric"},
+                {3, "Top Rated Assembly"},
+                {4, "Top Hits"},
+                {5, "New Languages this month"},
+                {6, "New Comments"},
+        };
+    }
 }

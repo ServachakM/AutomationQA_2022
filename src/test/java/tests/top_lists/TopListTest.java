@@ -1,8 +1,12 @@
 package tests.top_lists;
 
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import runner.BaseTest;
+import tests.TestData;
+
+import java.util.List;
 
 public class TopListTest extends BaseTest {
 
@@ -28,5 +32,21 @@ public class TopListTest extends BaseTest {
                         .getCountTDLinks();
 
         Assert.assertEquals(actualResult, expectedResult);
+    }
+
+    @Test(  priority = 1,
+            dataProviderClass = TestData.class,
+            dataProvider = "TopListSubmenuData"
+    )
+    public void testSubmenuText( int index, String name) {
+
+        List<WebElement> names =
+                openBaseURL()
+                        .clickTopListsMenu()
+                        .getAllSubmenu();
+
+        String nameText = names.get(index).getText();
+
+        Assert.assertEquals(nameText, name);
     }
 }
