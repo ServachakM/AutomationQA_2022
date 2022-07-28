@@ -9,6 +9,30 @@ import java.util.List;
 public class SubmitNewLanguageTest extends BaseTest {
 
     @Test
+    public void testMenuSubmitNewLanguageText() {
+        final String expectedMenuText = "Submit new Language".toLowerCase();
+
+        String actualMenuText =
+                openBaseURL()
+                        .getSubmitNewLanguageMenuText().
+                        toLowerCase();
+
+        Assert.assertEquals(actualMenuText, expectedMenuText);
+    }
+
+    @Test
+    public void testMenuSubmitNewLanguageLinkText() {
+        final String expectedLinkText = "http://www.99-bottles-of-beer.net/submitnewlanguage.html";
+
+        String actualLinkText =
+                openBaseURL()
+                        .getSubmitNewLanguageMenu()
+                        .getAttribute("href");
+
+        Assert.assertEquals(actualLinkText, expectedLinkText);
+    }
+
+    @Test
     public void testSubmitNewLanguageTextViaFooter() {
         final String expectedTextViaFooter = "Submit New Language";
 
