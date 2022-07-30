@@ -17,20 +17,6 @@ public class TestData {
         };
     }
 
-    @DataProvider(name = "TopListSubmenuData")
-    public static Object[][] submenuDataProvider() {
-
-        return new Object[][] {
-                {0, "Top Rated"},
-                {1, "Top Rated Real"},
-                {2, "Top Rated Esoteric"},
-                {3, "Top Rated Assembly"},
-                {4, "Top Hits"},
-                {5, "New Languages this month"},
-                {6, "New Comments"},
-        };
-    }
-
     @DataProvider(name = "NamesSubmenuStart")
     public static Object[][] namesSubmenuStart() {
 
@@ -39,6 +25,20 @@ public class TestData {
                 {1, "Song Lyrics", "http://www.99-bottles-of-beer.net/lyrics.html"},
                 {2, "History", "http://www.99-bottles-of-beer.net/info.html"},
                 {3, "Privacy", "http://www.99-bottles-of-beer.net/impressum.html"}
+        };
+    }
+
+    @DataProvider(name = "TopListSubmenuData")
+    public static Object[][] submenuDataProvider() {
+
+        return new Object[][] {
+                {0, "Top Rated", "http://www.99-bottles-of-beer.net/toplist.html"},
+                {1, "Top Rated Real", "http://www.99-bottles-of-beer.net/toplist_real.html"},
+                {2, "Top Rated Esoteric", "http://www.99-bottles-of-beer.net/toplist_esoteric.html"},
+                {3, "Top Rated Assembly", "http://www.99-bottles-of-beer.net/toplist_assembly.html"},
+                {4, "Top Hits", "http://www.99-bottles-of-beer.net/tophits.html"},
+                {5, "New Languages this month", "http://www.99-bottles-of-beer.net/toplist_newlanguagesthismonth.html"},
+                {6, "New Comments", "http://www.99-bottles-of-beer.net/newcomments.html"},
         };
     }
 }
