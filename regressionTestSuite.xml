@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="SuiteRegression" verbose="1" >
+    <test name="RegressionTestsForNewBuild" >
+        <packages>
+            <package name="tests.browse_languages" />
+            <package name="tests.browse_languages.letters" />
+            <package name="tests.guestbook" />
+            <package name="tests.main" />
+            <package name="tests.search_languages" />
+            <package name="tests.start" />
+            <package name="tests.submit_new_language" />
+            <package name="tests.languages" />
+        </packages>
+    </test>
+</suite>
