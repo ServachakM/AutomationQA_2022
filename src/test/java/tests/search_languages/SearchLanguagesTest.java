@@ -5,8 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.search_languages.SearchPage;
 import runner.BaseTest;
-
-import java.util.List;
+import tests.TestData;
 
 public class SearchLanguagesTest extends BaseTest {
 
@@ -23,6 +22,21 @@ public class SearchLanguagesTest extends BaseTest {
                         .getH2MainText();
 
         Assert.assertEquals(actualH2HeaderText, expectedH2HeaderText);
+    }
+
+    @Test(
+            dataProvider = "SearchLanguagesData",
+            dataProviderClass = TestData.class
+    )
+    public void testHowManyLanguagesNamesIncludeTheGivenCharactersOrWords(String name, int number) {
+
+        int actualNumber = openBaseURL()
+                .clickSearchLanguagesMenu()
+                .enterTextSearchField(name)
+                .clickSubmitSearchButton()
+                .getCountTrTags();
+
+        Assert.assertEquals(actualNumber, number);
     }
 
     @Test

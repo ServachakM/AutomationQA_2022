@@ -79,7 +79,7 @@ public class SearchPage extends BaseTablePage<LanguagesPage> {
     public String getStringTextFromJavaSearch() {
         StringBuilder actualResult = new StringBuilder();
         for (String javaSearchATag : getOnlyJavaSearchAText()) {
-            actualResult.append(javaSearchATag).toString();
+            actualResult.append(javaSearchATag);
         }
 
         return actualResult.toString();

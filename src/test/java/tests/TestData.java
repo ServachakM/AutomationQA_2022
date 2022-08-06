@@ -1,8 +1,9 @@
 package tests;
 
 import org.testng.annotations.DataProvider;
+import runner.TestUtils;
 
-public class TestData {
+public class TestData extends TestUtils {
 
     @DataProvider(name = "MainPageTestData")
     public static Object[][] mainDataProvider() {
@@ -17,8 +18,8 @@ public class TestData {
         };
     }
 
-    @DataProvider(name = "NamesSubmenuStart")
-    public static Object[][] namesSubmenuStart() {
+    @DataProvider(name = "SubmenuStartData")
+    public static Object[][] submenuStartDataProvider() {
 
         return new Object[][]{
                 {0, "Team", "http://www.99-bottles-of-beer.net/team.html"},
@@ -29,7 +30,7 @@ public class TestData {
     }
 
     @DataProvider(name = "TopListSubmenuData")
-    public static Object[][] submenuDataProvider() {
+    public static Object[][] submenuTopListDataProvider() {
 
         return new Object[][] {
                 {0, "Top Rated", "http://www.99-bottles-of-beer.net/toplist.html"},
@@ -39,6 +40,34 @@ public class TestData {
                 {4, "Top Hits", "http://www.99-bottles-of-beer.net/tophits.html"},
                 {5, "New Languages this month", "http://www.99-bottles-of-beer.net/toplist_newlanguagesthismonth.html"},
                 {6, "New Comments", "http://www.99-bottles-of-beer.net/newcomments.html"},
+        };
+    }
+
+    @DataProvider(name = "SubmitNewLanguageData")
+    public static Object[][] submitNewLanguageDataProvider() {
+
+        return new Object[][]{
+                {getRandomStr(10), getRandomStr(5), getRandomStr(5) + "@gmail.com", Integer.toString(getRandomNumbers(4)), getRandomStr(15)},
+                {getRandomStr(10), getRandomStr(5), getRandomStr(5) + "@gmail.com", Integer.toString(getRandomNumbers(4)), getRandomStr(15)},
+                {getRandomStr(10), getRandomStr(5), getRandomStr(5) + "@gmail.com", Integer.toString(getRandomNumbers(4)), getRandomStr(15)},
+                {getRandomStr(10), getRandomStr(5), getRandomStr(5) + "@gmail.com", Integer.toString(getRandomNumbers(4)), getRandomStr(15)},
+                {getRandomStr(10), getRandomStr(5), getRandomStr(5) + "@gmail.com", Integer.toString(getRandomNumbers(4)), getRandomStr(15)},
+        };
+    }
+
+    @DataProvider(name = "SearchLanguagesData")
+    public static Object[][] searchLanguagesDataProvider() {
+
+        return new Object[][] {
+                {"", 0},
+                {"     ", 0},
+                {".", 18},
+                {"1", 27},
+                {"5", 19},
+                {"#", 19},
+                {"java", 14},
+                {"python", 11},
+                {"bug", 1}
         };
     }
 }

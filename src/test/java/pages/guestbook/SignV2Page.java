@@ -141,7 +141,6 @@ public class SignV2Page extends BaseGuestbookPage {
     }
 
     public SignV2Page setInputName(String name) {
-        getInputName().click();
         getInputName().sendKeys(name);
 
         return this;
