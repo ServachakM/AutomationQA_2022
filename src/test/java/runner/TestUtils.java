@@ -5,7 +5,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class TestUtils {
+public class TestUtils {
 
     private static void getBottles(StringBuilder lyrics, int number, String btl) {
         lyrics.append(number).append(btl);

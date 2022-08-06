@@ -165,7 +165,7 @@ public class SubmitNewLanguagePage extends MainPage {
         return this;
     }
 
-    public SubmitNewLanguagePage fillEmailName(){
+    public SubmitNewLanguagePage fillEmail(){
         getEmailName().sendKeys(getRandomStr(5));
 
         return this;
@@ -181,4 +181,35 @@ public class SubmitNewLanguagePage extends MainPage {
 
         return this;
     }
+
+    public SubmitNewLanguagePage fillLanguageName(String languageName){
+        getLanguageName().sendKeys(languageName);
+
+        return this;
+    }
+
+    public SubmitNewLanguagePage fillAuthorName(String author){
+        getAuthorName().sendKeys(author);
+
+        return this;
+    }
+    public SubmitNewLanguagePage fillEmail(String email){
+        getEmailName().sendKeys(email);
+
+        return this;
+    }
+
+    public SubmitNewLanguagePage fillSecurityCode(String randomSecurityCode){
+        getSecurityCodeName().sendKeys(randomSecurityCode);
+
+        return this;
+    }
+
+    public SubmitNewLanguagePage fillCode(String code){
+        getCodeName().sendKeys(code);
+
+        return this;
+    }
+
+
 }

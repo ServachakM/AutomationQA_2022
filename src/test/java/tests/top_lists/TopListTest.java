@@ -30,7 +30,7 @@ public class TopListTest extends BaseTest {
             priority = 2,
             dependsOnMethods = "testCountSubmenu",
             dataProviderClass = TestData.class,
-            dataProvider = "TopListSubmenuData"
+            dataProvider = "submenuTopListDataProvider"
     )
     public void testSubmenuText(int index, String name, String link) {
         TopListPage topList = new TopListPage(getDriver());

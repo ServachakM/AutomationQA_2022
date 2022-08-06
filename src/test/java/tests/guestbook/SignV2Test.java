@@ -95,7 +95,7 @@ public class SignV2Test extends BaseTest {
     }
     @Test
     public void testInputFieldNameWithMaxSymbolsAndGetErrorMessage() {
-        String expectectedErrorMessage = "Error: Please enter at least a message, your email address and the security code.";
+        String expectedErrorMessage = "Error: Please enter at least a message, your email address and the security code.";
         String guestbookComment = "QA tests";
         String nameField = RandomStringUtils.randomAlphanumeric(100);
 
@@ -107,7 +107,7 @@ public class SignV2Test extends BaseTest {
                         .setInputComment(guestbookComment)
                         .getErrorMessageText();
 
-        Assert.assertEquals(actualErrorMessage, expectectedErrorMessage);
+        Assert.assertEquals(actualErrorMessage, expectedErrorMessage);
     }
 
     @Test

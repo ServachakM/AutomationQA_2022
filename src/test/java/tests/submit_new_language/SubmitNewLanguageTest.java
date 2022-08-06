@@ -3,6 +3,8 @@ package tests.submit_new_language;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import runner.BaseTest;
+import tests.TestData;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,7 +88,7 @@ public class SubmitNewLanguageTest extends BaseTest {
                         .clickSubmitNewLanguageMenu()
                         .fillAuthorName()
                         .fillLanguageName()
-                        .fillEmailName()
+                        .fillEmail()
                         .clickCategoryName()
                         .clickCategoryAssemblyLanguage()
                         .fillSecurityCode()
@@ -190,5 +192,48 @@ public class SubmitNewLanguageTest extends BaseTest {
                         .clickSubmitNewLanguageMenu().getTitleH3Text();
 
         Assert.assertEquals(actualTextH3HeaderSubmitNewLanguage, expectedTextH3HeaderSubmitNewLanguage);
+    }
+
+    @Test(
+            dataProviderClass = TestData.class,
+            dataProvider = "SubmitNewLanguageData"
+    )
+    public void testErrorMessageInvalidSecurityCode(String languageName, String author, String email, String securityCode, String code) {
+
+        final String expectedErrorMessage = "Error: Invalid security code.";
+
+        String actualErrorMessage =
+                openBaseURL()
+                        .clickSubmitNewLanguageMenu()
+                        .fillLanguageName(languageName)
+                        .fillAuthorName(author)
+                        .fillEmail(email)
+                        .fillSecurityCode(securityCode)
+                        .fillCode(code)
+                        .clickButtonSubmitLanguage()
+                        .getErrorMessageText();
+
+        Assert.assertEquals(actualErrorMessage,expectedErrorMessage);
+    }
+
+    @Test(
+            dataProviderClass = TestData.class,
+            dataProvider = "SubmitNewLanguageData"
+    )
+    public void testErrorMessageIncompleteInput(String languageName, String author, String email, String securityCode, String code) {
+
+        final String expectedErrorMessage = "Error: Precondition failed - Incomplete Input.";
+
+        String actualErrorMessage =
+                openBaseURL()
+                        .clickSubmitNewLanguageMenu()
+                        .fillAuthorName(author)
+                        .fillEmail(email)
+                        .fillSecurityCode(securityCode)
+                        .fillCode(code)
+                        .clickButtonSubmitLanguage()
+                        .getErrorMessageText();
+
+        Assert.assertEquals(actualErrorMessage,expectedErrorMessage);
     }
 }
