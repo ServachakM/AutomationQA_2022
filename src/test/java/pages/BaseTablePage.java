@@ -67,12 +67,9 @@ public abstract class BaseTablePage<LangPage> extends MainPage {
     }
 
     public List<String> getListStringTDLinks() {
-
-        List<WebElement> tDLink = getTDLinks();
-
         List<String> listOfLanguages = new ArrayList<>();
 
-        for (WebElement a : tDLink) {
+        for (WebElement a : getTDLinks()) {
             listOfLanguages.add(a.getText());
         }
 
