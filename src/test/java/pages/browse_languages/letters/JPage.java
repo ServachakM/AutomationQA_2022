@@ -7,8 +7,6 @@ import pages.browse_languages.BaseAbcPage;
 import pages.languages.Java3Page;
 import pages.languages.LanguagesPage;
 
-import java.util.List;
-
 public class JPage extends BaseAbcPage<LanguagesPage> {
 
     private final By lINK_LANGUAGE_JAVA_3 = By.xpath("//table[@id='category']//a[@href='language-java-3.html']");
@@ -33,11 +31,6 @@ public class JPage extends BaseAbcPage<LanguagesPage> {
         getLinkLanguageJava3().click();
 
         return new Java3Page(getDriver());
-    }
-
-    public List<String> getH2MainAndPTagText() {
-
-        return List.of(getH2MainText(), getTextPTag());
     }
 
     public String getTrText(String languageName) {

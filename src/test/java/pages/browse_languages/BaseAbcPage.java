@@ -9,8 +9,6 @@ import java.util.List;
 
 public abstract class BaseAbcPage<LangPage> extends BaseTablePage<LangPage> {
 
-    private final By H2_MAIN = By.xpath("//div[@id='main']/h2");
-
     private final String SUBMENU_BASE_PATH = "//ul[@id='submenu']/li/a[@href=";
     private final By ZERO_SUBMENU = By.xpath(SUBMENU_BASE_PATH + "'0.html']");
     private final By A_SUBMENU = By.xpath(SUBMENU_BASE_PATH + "'a.html']");
@@ -38,10 +36,6 @@ public abstract class BaseAbcPage<LangPage> extends BaseTablePage<LangPage> {
         super(driver);
     }
 
-    public WebElement getH2Main() {
-
-        return getDriver().findElement(H2_MAIN);
-    }
 
     public WebElement getZeroSubmenu() {
 
@@ -133,22 +127,9 @@ public abstract class BaseAbcPage<LangPage> extends BaseTablePage<LangPage> {
         return getDriver().findElement(Z_SUBMENU);
     }
 
-    public WebElement getSubmenu() {
-
-        return getDriver().findElement(SUBMENU);
-    }
-
     public List<WebElement> getAllSubmenu() {
 
         return getDriver().findElements(ALL_SUBMENU);
-    }
-    public void clickSubmenu(int index) {
-        getAllSubmenu().get(index).click();
-    }
-
-    public String getH2MainText() {
-
-        return getText(getH2Main());
     }
 
     public String getZeroSubmenuText() {
@@ -294,5 +275,9 @@ public abstract class BaseAbcPage<LangPage> extends BaseTablePage<LangPage> {
         getZSubmenu().click();
 
         return new ZPage(getDriver());
+    }
+
+    public void clickSubmenu(int index) {
+        getAllSubmenu().get(index).click();
     }
 }

@@ -9,6 +9,7 @@ import java.util.List;
 
 public abstract class BaseTablePage<LangPage> extends MainPage {
 
+    private final By H2_MAIN = By.xpath("//div[@id='main']/h2");
     private final By P_TAG_WITH_TEXT = By.xpath("//table[@id='category']/preceding-sibling::p");
     private final By TR_TAGS = By.xpath("//table[@id='category']/tbody/tr[@onmouseover]");
     private final By TH_TAGS = By.xpath("//table[@id='category']/tbody/tr/th");
@@ -18,6 +19,11 @@ public abstract class BaseTablePage<LangPage> extends MainPage {
 
     public BaseTablePage(WebDriver driver) {
         super(driver);
+    }
+
+    public WebElement getH2Main() {
+
+        return getDriver().findElement(H2_MAIN);
     }
 
     public List<WebElement> getTDLanguageNames() {
@@ -50,12 +56,6 @@ public abstract class BaseTablePage<LangPage> extends MainPage {
         return getDriver().findElement(By.linkText(languageName));
     }
 
-
-    public String getTextPTag() {
-
-        return getText(getPTagWithText());
-    }
-
     public int getCountTrTags() {
 
         return getTrTags().size();
@@ -64,6 +64,31 @@ public abstract class BaseTablePage<LangPage> extends MainPage {
     public int getCountTDLinks() {
 
         return getTDLinks().size();
+    }
+
+    public WebElement getRandomTdLink(){
+
+        return getTDLinks().get(randomIndex());
+    }
+
+    public WebElement getRandomTr() {
+
+        return getTrTags().get(randomIndex());
+    }
+
+    public String getH2MainText() {
+
+        return getText(getH2Main());
+    }
+
+    public String getTextPTag() {
+
+        return getText(getPTagWithText());
+    }
+
+    public List<String> getH2MainAndPTagText() {
+
+        return List.of(getH2MainText(), getTextPTag());
     }
 
     public List<String> getListStringTDLinks() {
@@ -88,16 +113,6 @@ public abstract class BaseTablePage<LangPage> extends MainPage {
         }
 
         return null;
-    }
-
-    public WebElement getRandomTdLink(){
-
-        return getTDLinks().get(randomIndex());
-    }
-
-    public WebElement getRandomTr() {
-
-        return getTrTags().get(randomIndex());
     }
 
     public int randomLanguage() {
