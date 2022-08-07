@@ -1,8 +1,13 @@
 package tests.browse_languages;
 
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.browse_languages.letters.AbcPage;
 import runner.BaseTest;
+import tests.TestData;
+
+import java.util.List;
 
 public class AbcTest extends BaseTest {
 
@@ -80,5 +85,69 @@ public class AbcTest extends BaseTest {
                         .getH2MainText();
 
         Assert.assertEquals(actualResult, expectedResult);
+    }
+
+    @Test(
+            dataProviderClass = TestData.class,
+            dataProvider = "BrowseLanguagesData"
+    )
+    public void testLinksAndTextAllSubmenu(int index, String submenuName, String link) {
+        List<WebElement> submenuElements =
+                openBaseURL()
+                        .clickBrowseLanguagesMenu()
+                        .getAllSubmenu();
+
+        AbcPage abc = new AbcPage(getDriver());
+
+        String actualLink = abc.getLink(submenuElements.get(index));
+        String actualTextSubmenu  = abc.getText(submenuElements.get(index));
+
+        Assert.assertEquals(actualLink, link);
+        Assert.assertEquals(actualTextSubmenu, submenuName.toUpperCase());
+    }
+
+    @Test(
+            dataProviderClass = TestData.class,
+            dataProvider = "BrowseLanguagesData"
+    )
+    public void testH2MainAllSubmenu(int index, String submenuName, String link) {
+        final String expectedH2Main = "Category " + submenuName.toUpperCase();
+
+        AbcPage abc = new AbcPage(getDriver());
+
+        openBaseURL()
+                .clickBrowseLanguagesMenu()
+                .clickSubmenu(index);
+
+        String actualH2Main = abc.getH2MainText();
+
+        Assert.assertEquals(actualH2Main, expectedH2Main);
+    }
+
+    @Test(
+            dependsOnMethods = "testH2MainAllSubmenu",
+            dataProviderClass = TestData.class,
+            dataProvider = "BrowseLanguagesData"
+    )
+    public void testClickAllSubmenuAndVerifyFirstLetterInEveryLanguage(int index, String submenuName, String link) {
+        AbcPage abc = new AbcPage(getDriver());
+
+        openBaseURL()
+                .clickBrowseLanguagesMenu()
+                .clickSubmenu(index);
+
+        List<String> listOfLanguages = abc.getListStringTDLinks();
+
+        for (String language : listOfLanguages) {
+
+            if (submenuName.equals("0-9")) {
+
+                Assert.assertTrue(language.charAt(0) > 47 && language.charAt(0) < 58);
+            } else {
+
+                Assert.assertTrue(
+                        language.substring(0, 1).equalsIgnoreCase(submenuName));
+            }
+        }
     }
 }

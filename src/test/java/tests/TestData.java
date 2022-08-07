@@ -29,6 +29,40 @@ public class TestData extends TestUtils {
         };
     }
 
+    @DataProvider(name = "BrowseLanguagesData")
+    public static Object[][] allSubmenuBrowseLanguagesDataProvider() {
+
+        return new Object[][]{
+                {0, "0-9", "http://www.99-bottles-of-beer.net/0.html"},
+                {1, "a", "http://www.99-bottles-of-beer.net/a.html"},
+                {2, "b", "http://www.99-bottles-of-beer.net/b.html"},
+                {3, "c", "http://www.99-bottles-of-beer.net/c.html"},
+                {4, "d", "http://www.99-bottles-of-beer.net/d.html"},
+                {5, "e", "http://www.99-bottles-of-beer.net/e.html"},
+                {6, "f", "http://www.99-bottles-of-beer.net/f.html"},
+                {7, "g", "http://www.99-bottles-of-beer.net/g.html"},
+                {8, "h", "http://www.99-bottles-of-beer.net/h.html"},
+                {9, "i", "http://www.99-bottles-of-beer.net/i.html"},
+                {10, "j", "http://www.99-bottles-of-beer.net/j.html"},
+                {11, "k", "http://www.99-bottles-of-beer.net/k.html"},
+                {12, "l", "http://www.99-bottles-of-beer.net/l.html"},
+                {13, "m", "http://www.99-bottles-of-beer.net/m.html"},
+                {14, "n", "http://www.99-bottles-of-beer.net/n.html"},
+                {15, "o", "http://www.99-bottles-of-beer.net/o.html"},
+                {16, "p", "http://www.99-bottles-of-beer.net/p.html"},
+                {17, "q", "http://www.99-bottles-of-beer.net/q.html"},
+                {18, "r", "http://www.99-bottles-of-beer.net/r.html"},
+                {19, "s", "http://www.99-bottles-of-beer.net/s.html"},
+                {20, "t", "http://www.99-bottles-of-beer.net/t.html"},
+                {21, "u", "http://www.99-bottles-of-beer.net/u.html"},
+                {22, "v", "http://www.99-bottles-of-beer.net/v.html"},
+                {23, "w", "http://www.99-bottles-of-beer.net/w.html"},
+                {24, "x", "http://www.99-bottles-of-beer.net/x.html"},
+                {25, "y", "http://www.99-bottles-of-beer.net/y.html"},
+                {26, "z", "http://www.99-bottles-of-beer.net/z.html"}
+        };
+    }
+
     @DataProvider(name = "TopListSubmenuData")
     public static Object[][] submenuTopListDataProvider() {
 
