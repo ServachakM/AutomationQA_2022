@@ -142,6 +142,9 @@ public abstract class BaseAbcPage<LangPage> extends BaseTablePage<LangPage> {
 
         return getDriver().findElements(ALL_SUBMENU);
     }
+    public void clickSubmenu(int index) {
+        getAllSubmenu().get(index).click();
+    }
 
     public String getH2MainText() {
 
