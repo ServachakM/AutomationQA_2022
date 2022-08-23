@@ -101,7 +101,9 @@ public class TestData extends TestUtils {
                 {"#", 19},
                 {"java", 14},
                 {"python", 11},
-                {"bug", 1}
+                {"bug", 1},
+                {"%", 0},
+                {"_", 0}
         };
     }
 }
