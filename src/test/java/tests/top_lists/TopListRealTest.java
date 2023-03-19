@@ -53,9 +53,9 @@ public class TopListRealTest extends BaseTest {
     @Test
     public void testFirstThreeLanguagesInTheTable() {
         final List<String> expectedLanguages = List.of(
-                "1. Express Lori Smallwood 04/20/05 0",
-                "2. REBOL Anonymous 04/20/05 1",
-                "3. NetLogo (Some kind of logo for Multi Agent System) Antoine Cervoise 07/16/10 0"
+                "1. REBOL Anonymous 04/20/05 1",
+                "2. NetLogo (Some kind of logo for Multi Agent System) Antoine Cervoise 07/16/10 0",
+                "3. clojure (More clojurisk and human readable versio)\tThomas G. Kristensen\t03/08/10\t0"
         );
 
         TopListRealPage realPage =
