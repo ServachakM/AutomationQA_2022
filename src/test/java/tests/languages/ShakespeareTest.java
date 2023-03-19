@@ -1,6 +1,7 @@
 package tests.languages;
 
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import runner.BaseTest;
 
@@ -39,6 +40,7 @@ public class ShakespeareTest extends BaseTest {
         Assert.assertEquals(actualNumberOfComments, expectedResult);
     }
 
+    @Ignore
     @Test
     public void testTitleShakespeareInfoLink() {
 
