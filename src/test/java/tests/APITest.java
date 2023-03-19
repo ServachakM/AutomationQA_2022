@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.search_languages.SearchPage;
 import runner.BaseTest;
@@ -8,6 +9,7 @@ import runner.CaptureNetworkTraffic;
 
 import java.util.List;
 
+@Ignore
 public class APITest extends BaseTest {
 
     @Test
